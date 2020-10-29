@@ -12,7 +12,7 @@ namespace Sw.Template.Interfaces
         /// <returns></returns>
         public List<Sys_User> GetList()
         {
-            return Db.Queryable<Sys_User>().ToList();
+            return Db.Queryable<Sys_User>().ToList();    
         }
     }
 }
