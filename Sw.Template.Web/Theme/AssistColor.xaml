@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--字体颜色-->
+    <SolidColorBrush x:Key="FontColor" Color="#F1EFEF"/>
+    <SolidColorBrush x:Key="FontSecond" Color="#383838"/>
+
+    <!--深色覆盖-->
+    <SolidColorBrush x:Key="Mask01" Color="#25000000"/>
+    <SolidColorBrush x:Key="Mask02" Color="#4D000000"/>
+    <SolidColorBrush x:Key="Mask03" Color="#73000000"/>
+    <SolidColorBrush x:Key="Mask04" Color="#8B000000"/>
+    <SolidColorBrush x:Key="Mask05" Color="#AE000000"/>
+    <SolidColorBrush x:Key="Mask06" Color="#C1000000"/>
+    <SolidColorBrush x:Key="Mask07" Color="#E4000000"/>
+    
+    <!--浅色覆盖-->
+    <SolidColorBrush x:Key="MaskRe01" Color="#38CBCBCB"/>
+    <SolidColorBrush x:Key="MaskRe02" Color="#63CBCBCB"/>
+    <SolidColorBrush x:Key="MaskRe03" Color="#6BCBCBCB"/>
+    <SolidColorBrush x:Key="MaskRe04" Color="#9BCBCBCB"/>
+    <SolidColorBrush x:Key="MaskRe05" Color="#CCCBCBCB"/>
+
+</ResourceDictionary>
