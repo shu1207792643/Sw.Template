@@ -54,7 +54,8 @@ namespace Sw.Template.DataAccess
 
         //添加上下文
         public DbSet<Sys_User> SysUserRelationDb => new DbSet<Sys_User>(Db);
-
+        public DbSet<Sys_Menu> SysMenuRelationDb => new DbSet<Sys_Menu>(Db);
+        public DbSet<Sys_UserMenu> SysUserMenuRelationDb => new DbSet<Sys_UserMenu>(Db);
         /// <summary>
         /// 扩展ORM
         /// </summary>

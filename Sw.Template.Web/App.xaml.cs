@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sw.Template.Common;
 using Sw.Template.Interfaces;
+using Sw.Template.Web.View;
 
 namespace Sw.Template.Web
 {
@@ -53,6 +54,8 @@ namespace Sw.Template.Web
         {
 
             services.AddScoped<ISysUsersService, SysUsersService>();
+            services.AddScoped<ISysUserMenuService, SysUserMenuService>();
+            services.AddScoped<ISysMenuService, SysMenuService>();
 
             services.AddTransient(typeof(MainWindow));
         }

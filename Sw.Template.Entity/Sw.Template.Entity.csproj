@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Sys_Menu.cs" />
     <Compile Include="Model\Sys_User.cs" />
+    <Compile Include="Model\Sys_UserMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
