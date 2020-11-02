@@ -38,7 +38,7 @@ namespace Sw.Template.DataAccess
                 {
                     IsAutoRemoveDataCache = true
                 }
-            }); ;
+            }); 
             //调式代码 用来打印SQL 
             Db.Aop.OnLogExecuting = (sql, pars) =>
             {

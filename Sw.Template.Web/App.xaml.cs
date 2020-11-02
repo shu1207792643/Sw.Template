@@ -1,12 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using System.Windows.Threading;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Sw.Template.Common;
+﻿using Ayx.AvalonDI;
+using Ninject;
 using Sw.Template.Interfaces;
-using Sw.Template.Web.View;
+using Sw.Template.Web.Helpers;
+using Sw.Template.Web.ViewModels;
+using System.Windows;
 
 namespace Sw.Template.Web
 {
@@ -15,49 +12,32 @@ namespace Sw.Template.Web
     /// </summary>
     public partial class App : Application
     {
-        public IServiceProvider ServiceProvider { get; private set; }
-        public IConfiguration Configuration { get; private set; }
+        //View和ViewModel的容器
+        public static AvalonContainer VM;
+        //Ninject容器
+        public static StandardKernel Ninject;
 
-        protected override void OnStartup(StartupEventArgs e)
+        private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.DispatcherUnhandledException += new DispatcherUnhandledExceptionEventHandler(App_DispatcherUnhandledException);
-
-
-
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory());
-
-            Configuration = builder.Build();
-
-
-            var serviceCollection = new ServiceCollection();
-
-            ConfigureServices(serviceCollection);
-
-            ServiceProvider = serviceCollection.BuildServiceProvider();
-
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-
-            mainWindow.Show();
+            //初始化服务依赖
+            InitDependency();
+            //显示主窗口
+            VM.GetView<MainWindow>()?.Show();
         }
-
-        /// <summary>
-        /// 全局异常
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        private void InitDependency()
         {
-            LogHelper.WriteError(e.Exception);
-        }
+            //配置Ninject依赖
+            Ninject = new StandardKernel();
 
-        private void ConfigureServices(IServiceCollection services)
-        {
+            #region 注入接口
+            Ninject.Bind<ISysUserMenuService>().To<SysUserMenuService>().InSingletonScope();
+            Ninject.Bind<ISysMenuService>().To<SysMenuService>().InSingletonScope(); 
+            #endregion
 
-            services.AddScoped<ISysUsersService, SysUsersService>();
-            services.AddScoped<ISysUserMenuService, SysUserMenuService>();
-            services.AddScoped<ISysMenuService, SysMenuService>();
-
-            services.AddTransient(typeof(MainWindow));
+            //使用Ninject容器创建View和ViewModel依赖容器
+            VM = new AvalonContainer(new NinjectContainer(Ninject));
+            //配置View和ViewModel依赖
+            VM.WireVM<MainWindow, MainWindowViewModel>();
         }
     }
 }

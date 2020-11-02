@@ -1,52 +1,27 @@
-﻿using MahApps.Metro.Controls;
-using Sw.Template.Common;
-using Sw.Template.Interfaces;
-using Sw.Template.Web.Helper;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Sw.Template.Web
 {
-
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : Window
     {
-        private readonly ISysUsersService sysUsersService;
-        private readonly ISysMenuService sysMenuService;
-        private readonly ISysUserMenuService sysUserMenuService;
-
-        public MainWindow(ISysUsersService sysUsersService, ISysMenuService sysMenuService, ISysUserMenuService sysUserMenuService)
+        public MainWindow()
         {
-            this.sysUsersService = sysUsersService;
-            this.sysMenuService = sysMenuService;
-            this.sysUserMenuService = sysUserMenuService;
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var userMenuList = sysUserMenuService.UserIdGetUserMenu(1);
-            if (userMenuList != null)
-            {
-                List<int> menuIds = new List<int>();
-                foreach (var item in userMenuList)
-                {
-                    menuIds.Add((int)item.MenuId);
-                }
-                var menuList = sysMenuService.MenuIdGetMenuList(menuIds);
-                if (menuList != null)
-                {
-
-                }
-            }
-            sysUsersService.GetList();
-        }
-
-
     }
 }
