@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sw.Template.Entity", "Sw.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sw.Template.DataAccess", "Sw.Template.DataAccess\Sw.Template.DataAccess.csproj", "{5C1EDA4E-E1C8-4EC9-8BF5-A006F59120D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sw.Template.Web", "Sw.Template.Web\Sw.Template.Web.csproj", "{13C7BCF9-5EAA-402E-A003-72A4DFA78C28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sw.Template.Web", "Sw.Template.Web\Sw.Template.Web.csproj", "{0C2C7D8D-F421-4F27-BF4F-7BAA3B831D3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{5C1EDA4E-E1C8-4EC9-8BF5-A006F59120D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C1EDA4E-E1C8-4EC9-8BF5-A006F59120D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C1EDA4E-E1C8-4EC9-8BF5-A006F59120D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13C7BCF9-5EAA-402E-A003-72A4DFA78C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13C7BCF9-5EAA-402E-A003-72A4DFA78C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13C7BCF9-5EAA-402E-A003-72A4DFA78C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13C7BCF9-5EAA-402E-A003-72A4DFA78C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C2C7D8D-F421-4F27-BF4F-7BAA3B831D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2C7D8D-F421-4F27-BF4F-7BAA3B831D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2C7D8D-F421-4F27-BF4F-7BAA3B831D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2C7D8D-F421-4F27-BF4F-7BAA3B831D3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

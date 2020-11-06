@@ -25,8 +25,8 @@ namespace Sw.Template.DataAccess
         {
             Db = new SqlSugarClient(new ConnectionConfig()
             {
-                ConnectionString = AppSettings.Configuration["DbConnection:ConnectionString"],
-                DbType = (DbType)Convert.ToInt32(AppSettings.Configuration["DbConnection:DbType"]),
+                ConnectionString = "Server=.;Database=Sw_Template;UID=sa;Password=123",//AppSettings.Configuration["DbConnection:ConnectionString"],
+                DbType = DbType.SqlServer,//(DbType)Convert.ToInt32(AppSettings.Configuration["DbConnection:DbType"]),
                 IsAutoCloseConnection = true,
                 IsShardSameThread = true,
                 InitKeyType = InitKeyType.Attribute,

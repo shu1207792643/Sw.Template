@@ -1,33 +1,69 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using Sw.Template.Interfaces;
 
 namespace Sw.Template.Web.ViewModel
 {
-    /// <summary>
-    /// 此类包含对中所有视图模型的静态引用
-    /// 应用程序，并提供绑定的入口点。
-    /// </summary>
+
     public class ViewModelLocator
     {
-        /// <summary>
-        /// 初始化ViewModelLocator类的新实例。
-        /// </summary>
+
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            SimpleIoc.Default.Register<MainViewModel>();
-        }
+            //if (ViewModelBase.IsInDesignModeStatic)
+            //{
+            //    // Create design time view services and models
+            //    SimpleIoc.Default.Register<ISysUsersService, SysUsersService>();
+            //}
+            //else
+            //{
+            //    // Create run time view services and models
+            //    //SimpleIoc.Default.Register<IDataService, DataService>();
+            //}
+            #region 接口
+            SimpleIoc.Default.Register<ISysUsersService, SysUsersService>();
 
-        public MainViewModel Main
+            SimpleIoc.Default.Register<ISysMenuService, SysMenuService>();
+
+            SimpleIoc.Default.Register<ISysUserMenuService, SysUserMenuService>();
+            #endregion
+
+            #region View关联ViewModel
+            SimpleIoc.Default.Register<MainViewModel>();
+
+            SimpleIoc.Default.Register<LoginViewModel>();
+
+            SimpleIoc.Default.Register<MenuViewModel>();
+            #endregion
+        }
+        //主页
+        public MainViewModel MainViewModel
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+        //登录
+        public LoginViewModel LoginViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+        //菜单
+        public MenuViewModel MenuViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MenuViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

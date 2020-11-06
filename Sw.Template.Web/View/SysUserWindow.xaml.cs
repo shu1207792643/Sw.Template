@@ -1,7 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using Sw.Template.Common;
-using Sw.Template.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sw.Template.Web.Views
+namespace Sw.Template.Web.View
 {
     /// <summary>
-    /// EntranceWindow.xaml 的交互逻辑
+    /// SysUserWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class EntranceWindow : MetroWindow
+    public partial class SysUserWindow : UserControl
     {
-        public EntranceWindow()
+        public SysUserWindow()
         {
             InitializeComponent();
         }
-
     }
 }

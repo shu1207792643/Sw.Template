@@ -1,15 +1,15 @@
 using GalaSoft.MvvmLight;
+using Sw.Template.Interfaces;
 
 namespace Sw.Template.Web.ViewModel
 {
+
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// 初始化MainViewModel类的新实例。
-        /// </summary>
-        public MainViewModel()
+        private readonly ISysUsersService sysUsersService;
+        public MainViewModel(ISysUsersService sysUsersService)
         {
-            
+            this.sysUsersService = sysUsersService;
         }
     }
 }

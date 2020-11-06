@@ -13,16 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sw.Template.Web
+namespace Sw.Template.Web.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MenuWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MenuWindow : UserControl
     {
-        public MainWindow()
+        public MenuWindow()
         {
             InitializeComponent();
+        }
+
+        private void HamburgerMenu_OptionsItemClick(object sender, MahApps.Metro.Controls.ItemClickEventArgs args)
+        {
+            //var menuItem = args.ClickedItem as MenuItem;
+            //contentFrame.Navigate(menuItem.PageType);
         }
     }
 }
