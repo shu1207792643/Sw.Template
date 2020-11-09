@@ -6,6 +6,23 @@
              xmlns:local="clr-namespace:Sw.Template.Web.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}">
+
+    <UserControl.Resources>
+        <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="12"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="true">
+                    <Setter Property="Background" Value="gray" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="gray" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -19,7 +36,7 @@
         <Button Content="重置" HorizontalAlignment="Left" Margin="715,13,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="372,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250"/>
         <StackPanel Grid.Row="1">
-            <ListView Height="400" ItemsSource="{Binding UserList}">
+            <ListView Height="400"  ItemsSource="{Binding UserList}"  ItemContainerStyle="{StaticResource ListViewItemStyle}" FontSize="16" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="账号" Width="100" DisplayMemberBinding="{Binding UserName}"></GridViewColumn>

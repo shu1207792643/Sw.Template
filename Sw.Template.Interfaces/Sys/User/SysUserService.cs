@@ -30,7 +30,6 @@ namespace Sw.Template.Interfaces
         /// <returns></returns>
         public ReturnResults Login(UserLoginModel model)
         {
-
             var userModel = Db.Queryable<Sys_User>().First(s => s.UserName == model.UserName && s.Password == model.UserPassword);
             if (userModel != null)
             {

@@ -110,6 +110,7 @@
     <Compile Include="Helpers\HTTPHelpers.cs" />
     <Compile Include="Helpers\ReturnResults.cs" />
     <Compile Include="Entity\UserLoginModel.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\HashEncode.cs" />
     <Compile Include="Security\MD5Encode.cs" />
@@ -120,6 +121,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sw.Template.Entity\Sw.Template.Entity.csproj">
+      <Project>{337B26E8-179D-4C14-8706-AE7A00DAA94A}</Project>
+      <Name>Sw.Template.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

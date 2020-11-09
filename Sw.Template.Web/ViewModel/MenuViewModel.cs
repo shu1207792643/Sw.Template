@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using MahApps.Metro.Controls;
+using Sw.Template.Common;
 using Sw.Template.Interfaces;
 using Sw.Template.Web.Helper;
 using System.Collections.Generic;
@@ -50,7 +51,7 @@ namespace Sw.Template.Web.ViewModel
         {
             ObservableCollection<HamburgerMenuGlyphItem> items = new ObservableCollection<HamburgerMenuGlyphItem>();
             //根据当前用户Id获取到当前用户菜单信息
-            var userMenuList = sysUserMenuService.UserIdGetUserMenu(1);
+            var userMenuList = sysUserMenuService.UserIdGetUserMenu(UserHelper.UserModel.UserID);
 
             List<int> menuIds = new List<int>();
 
