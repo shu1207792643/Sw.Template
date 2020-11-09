@@ -5,9 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sw.Template.Web.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="254,242,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Content="刷新" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="75" Command="{Binding UserListCommand}" />
+        <Button Content="新增" HorizontalAlignment="Left" Margin="98,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="删除" HorizontalAlignment="Left" Margin="275,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="修改" HorizontalAlignment="Left" Margin="186,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="查询" HorizontalAlignment="Left" Margin="627,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="重置" HorizontalAlignment="Left" Margin="715,13,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="372,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250"/>
+        <StackPanel Grid.Row="1">
+            <ListView Height="400" ItemsSource="{Binding UserList}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="账号" Width="100" DisplayMemberBinding="{Binding UserName}"></GridViewColumn>
+                        <GridViewColumn Header="名称" Width="100" DisplayMemberBinding="{Binding NickName}"></GridViewColumn>
+                        <GridViewColumn Header="邮箱" Width="100" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
+
+        </StackPanel>
     </Grid>
 </UserControl>

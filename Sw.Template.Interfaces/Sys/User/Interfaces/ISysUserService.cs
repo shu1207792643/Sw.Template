@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Sw.Template.Interfaces
 {
-    public interface ISysUsersService : IBaseService<Sys_User>
+    public interface ISysUserService : IBaseService<Sys_User>
     {
         /// <summary>
         /// 查询用户集合

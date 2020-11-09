@@ -17,7 +17,7 @@ namespace Sw.Template.Interfaces
         /// <returns></returns>
         public List<Sys_Menu> MenuIdGetMenuList(List<int> MenuIds)
         {
-            var menuList = Db.Queryable<Sys_Menu>().Where(s => MenuIds.Contains(s.Id)).ToList();
+            var menuList = Db.Queryable<Sys_Menu>().Where(s => MenuIds.Contains(s.Id) && s.IsEnabled != 0).ToList();
             if (menuList.Count > 0)
             {
                 return menuList;

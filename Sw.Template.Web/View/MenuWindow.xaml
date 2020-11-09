@@ -8,23 +8,26 @@
              xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
+
     <UserControl.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mah:HamburgerMenuGlyphItem}">
-                <Grid Height="48">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <material:PackIcon Width="25" Height="25"
+                <DockPanel Height="48" LastChildFill="True" ToolTip="{Binding Label}" Background="Transparent">
+                    <Grid Height="48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <material:PackIcon Width="25" Height="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                Kind="{Binding Tag}"/>
-                    <TextBlock Grid.Column="1"
+                        <TextBlock Grid.Column="1"
                                VerticalAlignment="Center"
                                FontSize="16"
                                Text="{Binding Label}" />
-                </Grid>
+                    </Grid>
+                </DockPanel>
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -52,7 +55,8 @@
 
             <!--菜单显示内容-->
             <mah:HamburgerMenu.Content>
-                <ContentControl  Content="{Binding SelectedView}"></ContentControl>
+                <ContentControl Content="{Binding SelectedView}">
+                </ContentControl>
             </mah:HamburgerMenu.Content>
         </mah:HamburgerMenu>
     </Grid>

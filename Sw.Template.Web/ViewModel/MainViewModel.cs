@@ -6,10 +6,8 @@ namespace Sw.Template.Web.ViewModel
 
     public class MainViewModel : ViewModelBase
     {
-        private readonly ISysUsersService sysUsersService;
-        public MainViewModel(ISysUsersService sysUsersService)
+        public MainViewModel()
         {
-            this.sysUsersService = sysUsersService;
         }
     }
 }

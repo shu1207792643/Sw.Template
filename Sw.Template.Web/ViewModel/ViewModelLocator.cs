@@ -24,7 +24,7 @@ namespace Sw.Template.Web.ViewModel
             //    //SimpleIoc.Default.Register<IDataService, DataService>();
             //}
             #region 接口
-            SimpleIoc.Default.Register<ISysUsersService, SysUsersService>();
+            SimpleIoc.Default.Register<ISysUserService, SysUserService>();
 
             SimpleIoc.Default.Register<ISysMenuService, SysMenuService>();
 
@@ -37,6 +37,8 @@ namespace Sw.Template.Web.ViewModel
             SimpleIoc.Default.Register<LoginViewModel>();
 
             SimpleIoc.Default.Register<MenuViewModel>();
+
+            SimpleIoc.Default.Register<UserViewModel>();
             #endregion
         }
         //主页
@@ -63,7 +65,14 @@ namespace Sw.Template.Web.ViewModel
                 return ServiceLocator.Current.GetInstance<MenuViewModel>();
             }
         }
-
+        //用户管理
+        public UserViewModel UserViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<UserViewModel>();
+            }
+        }
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

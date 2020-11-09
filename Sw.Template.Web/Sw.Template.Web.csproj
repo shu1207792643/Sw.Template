@@ -119,10 +119,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\WindowBehavior.cs" />
+    <Compile Include="Common\WindowManager.cs" />
     <Compile Include="Helper\InitAutofac.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -194,6 +197,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sw.Template.Common\Sw.Template.Common.csproj">
+      <Project>{B28295B6-357B-45CA-85AC-C2B93B16D5B6}</Project>
+      <Name>Sw.Template.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sw.Template.DataAccess\Sw.Template.DataAccess.csproj">
       <Project>{5C1EDA4E-E1C8-4EC9-8BF5-A006F59120D5}</Project>
       <Name>Sw.Template.DataAccess</Name>

@@ -48,9 +48,9 @@
     <Compile Include="Sys\Menu\SysMenuService.cs" />
     <Compile Include="Sys\UserMenu\Interfaces\ISysUserMenuService.cs" />
     <Compile Include="Sys\UserMenu\SysUserMenuService.cs" />
-    <Compile Include="Sys\User\Interfaces\ISysUsersService.cs" />
+    <Compile Include="Sys\User\Interfaces\ISysUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sys\User\SysUsersService.cs" />
+    <Compile Include="Sys\User\SysUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sw.Template.Common\Sw.Template.Common.csproj">

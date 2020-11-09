@@ -73,7 +73,7 @@ namespace Sw.Template.Entity
         /// <summary>
         /// 是否启用
         /// </summary>
-        public System.Int32? Enabled { get; set; }
+        public System.Int32? IsEnabled { get; set; }
 
         /// <summary>
         /// 创建时间

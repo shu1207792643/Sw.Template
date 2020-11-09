@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Sw.Template.Common;
 using Sw.Template.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,31 @@ namespace Sw.Template.Web.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
-        private readonly ISysUsersService sysUsersService;
-        public LoginViewModel(ISysUsersService sysUsersService)
+        private bool toClose = false;
+        /// <summary>
+        /// 是否要关闭窗口
+        /// </summary>
+        public bool ToClose
+        {
+            get
+            {
+                return toClose;
+            }
+            set
+            {
+                toClose = value;
+                if (toClose)
+                {
+                    this.RaisePropertyChanged("ToClose");
+                }
+            }
+        }
+        public string UserName { get; set; }
+
+        public string PassWord { get; set; }
+
+        private readonly ISysUserService sysUsersService;
+        public LoginViewModel(ISysUserService sysUsersService)
         {
             this.sysUsersService = sysUsersService;
             LoginCommand = new RelayCommand(Login);
@@ -22,8 +46,18 @@ namespace Sw.Template.Web.ViewModel
 
         public void Login()
         {
-            MainWindow main = new MainWindow();
-            main.Show();
+            UserLoginModel userLoginModel = new UserLoginModel()
+            {
+                UserName = UserName,
+                UserPassword = PassWord
+            };
+            var ser = sysUsersService.Login(userLoginModel);
+            if (ser.StatusCode == 200)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+                ToClose = true;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sw.Template.Interfaces
 {
-    public class SysUsersService : BaseService<Sys_User>, ISysUsersService
+    public class SysUserService : BaseService<Sys_User>, ISysUserService
     {
         /// <summary>
         /// 查询用户集合
