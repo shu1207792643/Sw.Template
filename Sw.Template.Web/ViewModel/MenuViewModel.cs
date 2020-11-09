@@ -40,20 +40,27 @@ namespace Sw.Template.Web.ViewModel
 
         private void ChangeContent()
         {
+            //获取到页面信息
             SelectedView = InitAutofac.GetFromFac<UserControl>(SelectedMenuItem.Label);
+            //通知UI 页面已经改变
+            this.RaisePropertyChanged(nameof(SelectedView));
         }
 
         private ObservableCollection<HamburgerMenuGlyphItem> GetUserPower()
         {
             ObservableCollection<HamburgerMenuGlyphItem> items = new ObservableCollection<HamburgerMenuGlyphItem>();
-
+            //根据当前用户Id获取到当前用户菜单信息
             var userMenuList = sysUserMenuService.UserIdGetUserMenu(1);
+
             List<int> menuIds = new List<int>();
+
             foreach (var item in userMenuList)
             {
                 menuIds.Add((int)item.MenuId);
             }
+
             var menuList = sysMenuService.MenuIdGetMenuList(menuIds);
+
             foreach (var item in menuList)
             {
                 HamburgerMenuGlyphItem it = new HamburgerMenuGlyphItem()
