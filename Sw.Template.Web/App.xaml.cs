@@ -10,7 +10,7 @@ namespace Sw.Template.Web
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            //InitAutofac.InitAutofacs();
+            InitAutofac.InitAutofacs();
             base.OnStartup(e);
         }
     }

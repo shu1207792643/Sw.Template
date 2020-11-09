@@ -1,11 +1,7 @@
 ﻿using Autofac;
 using Sw.Template.Web.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI;
+using System.Windows.Controls;
 
 namespace Sw.Template.Web.Helper
 {
@@ -30,12 +26,12 @@ namespace Sw.Template.Web.Helper
         {
             _Builder = new ContainerBuilder();//实例化
 
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("数据采集");//注册方式二
+            _Builder.RegisterType<SysMenuWindow>().Named<UserControl>("数据采集");//注册方式二
             _Builder.RegisterType<SysMenuWindow>().Named<UserControl>("专测联调");//注册方式二
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("用户管理");//注册方式二
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("系统配置");//注册方式二
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("系统自检");//注册方式二
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("菜单管理");//注册方式二
+            //_Builder.RegisterType<SysUserWindow>().Named<UserControl>("用户管理");//注册方式二
+            //_Builder.RegisterType<SysUserWindow>().Named<UserControl>("系统配置");//注册方式二
+            //_Builder.RegisterType<SysUserWindow>().Named<UserControl>("系统自检");//注册方式二
+            //_Builder.RegisterType<SysUserWindow>().Named<UserControl>("菜单管理");//注册方式二
         }
 
         public static T GetFromFac<T>(string name)//定义一个方法在外部调用，使得可以调用已注入的服务
