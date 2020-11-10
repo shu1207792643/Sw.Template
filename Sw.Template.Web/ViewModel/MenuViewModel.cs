@@ -51,8 +51,8 @@ namespace Sw.Template.Web.ViewModel
         {
             ObservableCollection<HamburgerMenuGlyphItem> items = new ObservableCollection<HamburgerMenuGlyphItem>();
             //根据当前用户Id获取到当前用户菜单信息
-            var userMenuList = sysUserMenuService.UserIdGetUserMenu(UserHelper.UserModel.UserID);
-
+            //var userMenuList = sysUserMenuService.UserIdGetUserMenu(UserHelper.UserModel.UserID);
+            var userMenuList = sysUserMenuService.UserIdGetUserMenu(1);
             List<int> menuIds = new List<int>();
 
             foreach (var item in userMenuList)

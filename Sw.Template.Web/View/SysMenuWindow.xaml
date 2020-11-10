@@ -3,12 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Sw.Template.Web.View"
+             xmlns:local="clr-namespace:Sw.Template.Web.View" xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1200">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="316,335,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="425,233,0,0" VerticalAlignment="Top" Width="75"/>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <TabControl>
+                    <TabItem Header="SFX-3/3B 测试"></TabItem>
+                </TabControl>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Width="250">
+               
+                <GroupBox Header="操作及配置"  Margin="4 5">
+                    <StackPanel>
+                        <TextBlock Text="产品型号:" Margin="5"/>
+                        <TextBox  Height="25" VerticalContentAlignment="Center" Text="SFX-3/3B" IsReadOnly="True" Margin="5 5 5 10"></TextBox>
 
+                        <TextBlock Text="测试代号:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox  Height="25"  VerticalContentAlignment="Center" Margin="5 5 5 10"></TextBox>
+
+                        <TextBlock Text="起测通道:" VerticalAlignment="Center" Margin="5"/>
+                        <ComboBox  Height="25" VerticalContentAlignment="Center" Margin="5 5 5 10"></ComboBox>
+
+                        <TextBlock Text="测试类型:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox  Height="25" Text="1-1" VerticalContentAlignment="Center" Margin="5 5 5 20"></TextBox>
+
+                        <Button Width="120"  Height="30"  Padding="0">
+                            <StackPanel Orientation="Horizontal">
+                                <material:PackIcon Kind="Stop"/>
+                                <TextBlock Text="停止全部测试"  FontSize="12"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="TextBox"  Margin="4 5">
+                    <AdornerDecorator>
+                        <StackPanel>
+                            <Button />
+                            <CheckBox />
+                            <ComboBox />
+                        </StackPanel>
+                    </AdornerDecorator>
+                </GroupBox>
+                <GroupBox Header="TextBox"  Margin="4 5">
+                    <Button>dsf</Button>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel>
+                <TabControl>
+                    <TabItem Header="SSPC通道">
+                        
+                    </TabItem>
+                    <TabItem Header="离散量">
+                        
+                    </TabItem>
+                    <TabItem Header="ARINC429">
+                        
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

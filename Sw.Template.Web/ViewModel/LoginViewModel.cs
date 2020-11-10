@@ -50,20 +50,25 @@ namespace Sw.Template.Web.ViewModel
 
         public void Login()
         {
-            UserLoginModel userLoginModel = new UserLoginModel()
-            {
-                UserName = UserName,
-                UserPassword = PassWord
-            };
-            var ser = sysUsersService.Login(userLoginModel);
-            if (ser.StatusCode == 200)
-            {
-                UserHelper.UserModel = ser.Result as Sys_User;
 
-                MainWindow main = new MainWindow();
-                main.Show();
-                ToClose = true;
-            }
+            MainWindow main = new MainWindow();
+            main.Show();
+            ToClose = true;
+
+            //UserLoginModel userLoginModel = new UserLoginModel()
+            //{
+            //    UserName = UserName,
+            //    UserPassword = PassWord
+            //};
+            //var ser = sysUsersService.Login(userLoginModel);
+            //if (ser.StatusCode == 200)
+            //{
+            //    UserHelper.UserModel = ser.Result as Sys_User;
+
+            //    MainWindow main = new MainWindow();
+            //    main.Show();
+            //    ToClose = true;
+            //}
         }
     }
 }

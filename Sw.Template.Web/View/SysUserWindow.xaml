@@ -36,7 +36,7 @@
         <Button Content="重置" HorizontalAlignment="Left" Margin="715,13,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="372,13,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250"/>
         <StackPanel Grid.Row="1">
-            <ListView Height="400"  ItemsSource="{Binding UserList}"  ItemContainerStyle="{StaticResource ListViewItemStyle}" FontSize="16" >
+            <ListView Height="400"  ItemsSource="{Binding UserList}"  ItemContainerStyle="{StaticResource ListViewItemStyle}" FontSize="16"  Margin="5 5">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="账号" Width="100" DisplayMemberBinding="{Binding UserName}"></GridViewColumn>
