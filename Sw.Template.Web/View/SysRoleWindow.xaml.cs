@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Sw.Template.Web.View
 {
     /// <summary>
-    /// MenuWindow.xaml 的交互逻辑
+    /// SysRoleWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MenuWindow : UserControl
+    public partial class SysRoleWindow : UserControl
     {
-        public MenuWindow()
+        public SysRoleWindow()
         {
             InitializeComponent();
         }

@@ -2,62 +2,33 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Sw.Template.Web.View" 
-             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
-             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
-
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <DataTemplate x:Key="MenuItemTemplate" DataType="{x:Type mah:HamburgerMenuGlyphItem}">
-                <DockPanel Height="48" LastChildFill="True" ToolTip="{Binding Label}" Background="Transparent">
-                    <Grid Height="48">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <material:PackIcon Width="25" Height="25"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Kind="{Binding Tag}"/>
-                        <TextBlock Grid.Column="1"
-                               VerticalAlignment="Center"
-                               FontSize="16"
-                               Text="{Binding Label}" />
-                    </Grid>
-                </DockPanel>
-            </DataTemplate>
-        </ResourceDictionary>
-    </UserControl.Resources>
-
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <!-- ItemsSource 配置数据源   DisplayMode 显示模式-->
-        <mah:HamburgerMenu SelectedIndex="0"
-                           ItemsSource="{Binding HamburgerMenuItems}"  
-                           DisplayMode="CompactOverlay" 
-                           ItemTemplate="{StaticResource MenuItemTemplate}" 
-                           OptionsItemTemplate="{StaticResource MenuItemTemplate}" 
-                           SelectedItem="{Binding SelectedMenuItem}">
-            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
-                <DataTemplate>
-                    <TextBlock HorizontalAlignment="Left"
-                                   VerticalAlignment="Center"
-                                   FontSize="18"
-                                   Margin="5 0 0 0" FontWeight="Bold"/>
-                </DataTemplate>
-            </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left" Width="200">
+                <TreeView  Height="NaN" Width="NaN"
+                   pu:TreeViewHelper.TreeViewStyle="Classic"
+                   pu:TreeViewHelper.SelectMode="ChildOnly"
+                   pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
+                   pu:TreeViewHelper.ExpandMode="SingleClick"
+                   pu:TreeViewHelper.ItemHeight="30" 
+                   pu:TreeViewHelper.SelectedBackground="#FF00FFA3" >
+                    <TreeViewItem Header="首页" />
+                    <TreeViewItem Header="收银管理"/>
+                    <TreeViewItem Header="报表管理" />
+                    <TreeViewItem Header="系统设置">
+                        <TreeViewItem Header="菜单管理"/>
+                        <TreeViewItem Header="角色管理" />
+                        <TreeViewItem Header="会员管理"></TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </StackPanel>
+            <StackPanel Background="Orange">
 
-            <!--菜单显示内容-->
-            <mah:HamburgerMenu.Content>
-                <ContentControl Content="{Binding SelectedView}">
-                </ContentControl>
-            </mah:HamburgerMenu.Content>
-        </mah:HamburgerMenu>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

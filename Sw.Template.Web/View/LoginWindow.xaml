@@ -3,21 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sw.Template.Web.View" 
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
-        xmlns:c="clr-namespace:Sw.Template.Web.Common"
+        xmlns:local="clr-namespace:Sw.Template.Web.View"
         mc:Ignorable="d"
-        Title="登录" Height="250" Width="270" 
-        DataContext="{Binding Source={StaticResource Locator},Path=LoginViewModel}" 
-        WindowStartupLocation="CenterScreen">
-    <i:Interaction.Behaviors>
-        <c:WindowBehavior Close="{Binding ToClose}"/>
-    </i:Interaction.Behaviors>
+        Title="登录" Height="450" Width="800">
     <Grid>
-        <Label Content="账号：" HorizontalAlignment="Left" Margin="31,50,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding UserName}"  HorizontalAlignment="Left" Height="23" Margin="82,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="132"/>
-        <Label Content="密码：" HorizontalAlignment="Left" Margin="31,96,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding PassWord}"  HorizontalAlignment="Left" Height="23" Margin="82,96,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="132"/>
-        <Button Content="登录" HorizontalAlignment="Left" Margin="103,162,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LoginCommand}"/>
+
     </Grid>
 </Window>

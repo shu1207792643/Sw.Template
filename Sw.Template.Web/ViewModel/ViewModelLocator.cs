@@ -13,16 +13,6 @@ namespace Sw.Template.Web.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            //if (ViewModelBase.IsInDesignModeStatic)
-            //{
-            //    // Create design time view services and models
-            //    SimpleIoc.Default.Register<ISysUsersService, SysUsersService>();
-            //}
-            //else
-            //{
-            //    // Create run time view services and models
-            //    //SimpleIoc.Default.Register<IDataService, DataService>();
-            //}
             #region ½Ó¿Ú
             SimpleIoc.Default.Register<ISysUserService, SysUserService>();
 
