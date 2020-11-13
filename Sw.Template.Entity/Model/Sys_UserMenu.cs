@@ -21,13 +21,13 @@ namespace Sw.Template.Entity
         public System.Int32 Id { get; set; }
 
         /// <summary>
-        /// 用户Id
+        /// 角色Id
         /// </summary>
-        public System.Int32? UserId { get; set; }
+        public System.Int32 RoleId { get; set; }
 
         /// <summary>
         /// 菜单Id
         /// </summary>
-        public System.Int32? MenuId { get; set; }
+        public System.Int32 MenuId { get; set; }
     }
 }

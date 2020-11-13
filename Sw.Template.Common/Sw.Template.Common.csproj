@@ -105,6 +105,7 @@
     <Compile Include="Api\ApiResult.cs" />
     <Compile Include="Api\PagedInfo.cs" />
     <Compile Include="Api\PageParm.cs" />
+    <Compile Include="Entity\TreeNode.cs" />
     <Compile Include="Enum\EnumHelper.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="Helpers\HTTPHelpers.cs" />

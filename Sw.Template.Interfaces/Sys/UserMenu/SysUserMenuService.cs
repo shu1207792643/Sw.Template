@@ -17,7 +17,7 @@ namespace Sw.Template.Interfaces
         /// <returns></returns>
         public List<Sys_UserMenu> UserIdGetUserMenu(int UserId)
         {
-            var userMenuList = Db.Queryable<Sys_UserMenu>().Where(s => s.UserId == UserId).ToList();
+            var userMenuList = Db.Queryable<Sys_UserMenu>().Where(s => s.MenuId == UserId).ToList();
             if (userMenuList.Count > 0)
             {
                 return userMenuList;

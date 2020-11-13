@@ -38,7 +38,7 @@ namespace Sw.Template.Entity
         /// <summary>
         /// 菜单父级
         /// </summary>
-        public System.String MenuFather { get; set; }
+        public System.Int32 MenuFather { get; set; }
 
         /// <summary>
         /// 是否启用

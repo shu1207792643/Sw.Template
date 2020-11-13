@@ -26,11 +26,9 @@ namespace Sw.Template.Web.Helper
         {
             _Builder = new ContainerBuilder();//实例化
 
-            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("会员管理");//注册方式二
-            _Builder.RegisterType<SysMenuWindow>().Named<UserControl>("菜单管理");//注册方式二
-            _Builder.RegisterType<SysRoleWindow>().Named<UserControl>("角色管理");//注册方式二
-
-
+            _Builder.RegisterType<SysUserWindow>().Named<UserControl>("员工管理");
+            _Builder.RegisterType<SysMenuWindow>().Named<UserControl>("菜单管理");
+            _Builder.RegisterType<SysRoleWindow>().Named<UserControl>("角色管理");
         }
 
         public static T GetFromFac<T>(string name)//定义一个方法在外部调用，使得可以调用已注入的服务

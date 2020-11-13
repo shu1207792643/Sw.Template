@@ -3,31 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:web="clr-namespace:Sw.Template.Web"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
+             d:DesignHeight="600" d:DesignWidth="1200" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
     <Grid>
         <DockPanel>
             <StackPanel DockPanel.Dock="Left" Width="200">
-                <TreeView  Height="NaN" Width="NaN"
+                <web:CusTreeView  Height="NaN" Width="NaN" 
+                   ItemsSource="{Binding ChildNodes}" 
                    pu:TreeViewHelper.TreeViewStyle="Classic"
                    pu:TreeViewHelper.SelectMode="ChildOnly"
                    pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
                    pu:TreeViewHelper.ExpandMode="SingleClick"
                    pu:TreeViewHelper.ItemHeight="30" 
-                   pu:TreeViewHelper.SelectedBackground="#FF00FFA3" >
-                    <TreeViewItem Header="首页" />
-                    <TreeViewItem Header="收银管理"/>
-                    <TreeViewItem Header="报表管理" />
-                    <TreeViewItem Header="系统设置">
-                        <TreeViewItem Header="菜单管理"/>
-                        <TreeViewItem Header="角色管理" />
-                        <TreeViewItem Header="会员管理"></TreeViewItem>
-                    </TreeViewItem>
-                </TreeView>
+                   Command="{Binding SelectedCommand}"
+                   pu:TreeViewHelper.SelectedBackground="#FF00FFA3">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                            <StackPanel>
+                                <TextBlock VerticalAlignment="Center" FontSize="14" Text="{Binding NodeName}">
+                                </TextBlock>
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </web:CusTreeView>
             </StackPanel>
-            <StackPanel Background="Orange">
-
+            <StackPanel>
+                <ContentControl Content="{Binding SelectedView}"></ContentControl>
             </StackPanel>
         </DockPanel>
     </Grid>
