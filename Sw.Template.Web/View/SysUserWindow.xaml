@@ -5,8 +5,68 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Sw.Template.Web.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             d:DesignHeight="800" d:DesignWidth="1500" DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="pu:ButtonHelper.ButtonStyle" Value="Link"/>
+            <Setter Property="pu:ButtonHelper.ClickStyle" Value="Sink"/>
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle" Value="Link">
+                    <Setter Property="Background" Value="#C8545454"/>
+                    <Setter Property="Foreground" Value="#C8000000"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="界面操作" Margin="5" 
+                  pu:GroupBoxHelper.IsSplitLineVisible="True"
+                  pu:GroupBoxHelper.ShadowColor="#C8545454">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="刷新" Width="120" Height="30" Margin="10" />
+
+                <Button Content="新增" Width="120" Height="30" Margin="10" Command="{Binding SysUserDialogCommand}"/>
+
+                <Button Content="修改" Width="120" Height="30" Margin="10"/>
+
+                <Button Content="删除" Width="120" Height="30" Margin="10"/>
+
+                <TextBox  Height="30" Width="300"  Margin="300 0 0 0" 
+                          pu:TextBoxHelper.FocusedBorderBrush="#C800C1FF"  
+                          pu:TextBoxHelper.FocusedShadowColor="#C800C1FF" 
+                          pu:TextBoxHelper.Watermark="名称/账号"
+                          pu:TextBoxHelper.CornerRadius="15" Text="{Binding Q}"/>
+
+                <Button Content="查询" Width="120" Height="30" Margin="20 0" Command="{Binding QueryCommand}"/>
+
+                <Button Content="重置" Width="120" Height="30" Margin="5 0" Command="{Binding ResetCommand}"/>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="数据列表" Margin="5" Grid.Row="1" 
+                  pu:GroupBoxHelper.IsSplitLineVisible="True"
+                  pu:GroupBoxHelper.ShadowColor="#C8545454">
+            <DataGrid IsReadOnly="True"  ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding Edit}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Id" Width="200" Binding="{Binding UserID}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="账号" Width="200" Binding="{Binding  UserName}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="密码" Width="200" Binding="{Binding  Password}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="名称" Width="200" Binding="{Binding NickName}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="性别" Width="200" Binding="{Binding Sex}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="是否启用" Width="200" Binding="{Binding IsEnabled}"></DataGridTextColumn>
+                    <DataGridTextColumn  Header="地址" Width="200" Binding="{Binding  Address}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </UserControl>

@@ -32,6 +32,7 @@ namespace Sw.Template.Web.ViewModel
             this.sysUserMenuService = sysUserMenuService;
             ChildNodes = GetListMenu();
         }
+
         /// <summary>
         /// 当前显示的模块
         /// </summary>

@@ -3,30 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:web="clr-namespace:Sw.Template.Web"
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1200" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
+             d:DesignHeight="1000" d:DesignWidth="1800" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
     <Grid>
         <DockPanel>
-            <StackPanel DockPanel.Dock="Left" Width="200">
-                <web:CusTreeView  Height="NaN" Width="NaN" 
-                   ItemsSource="{Binding ChildNodes}" 
-                   pu:TreeViewHelper.TreeViewStyle="Classic"
-                   pu:TreeViewHelper.SelectMode="ChildOnly"
-                   pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
-                   pu:TreeViewHelper.ExpandMode="SingleClick"
-                   pu:TreeViewHelper.ItemHeight="30" 
-                   Command="{Binding SelectedCommand}"
-                   pu:TreeViewHelper.SelectedBackground="#FF00FFA3">
+            <StackPanel DockPanel.Dock="Left" Width="300">
+                <TreeView  Height="1000" ItemsSource="{Binding ChildNodes}" 
+                           Margin="5"
+                           pu:TreeViewHelper.TreeViewStyle="Classic"
+                           pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
+                           pu:TreeViewHelper.ExpandMode="SingleClick"
+                           pu:TreeViewHelper.ItemPadding="20 0">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectedItemChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TreeView}}, Path=SelectedValue}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                             <StackPanel>
-                                <TextBlock VerticalAlignment="Center" FontSize="14" Text="{Binding NodeName}">
-                                </TextBlock>
+                                <TextBlock VerticalAlignment="Center" FontSize="14" Text="{Binding NodeName}"/>
                             </StackPanel>
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
-                </web:CusTreeView>
+                </TreeView>
             </StackPanel>
             <StackPanel>
                 <ContentControl Content="{Binding SelectedView}"></ContentControl>
