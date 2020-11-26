@@ -32,11 +32,11 @@
 
                 <Button Content="新增" Width="120" Height="30" Margin="10" Command="{Binding SysUserDialogCommand}"/>
 
-                <Button Content="修改" Width="120" Height="30" Margin="10"/>
+                <!--<Button Content="修改" Width="120" Height="30" Margin="10"/>-->
 
                 <Button Content="删除" Width="120" Height="30" Margin="10"/>
 
-                <TextBox  Height="30" Width="300"  Margin="300 0 0 0" 
+                <TextBox  Height="30" Width="300"  Margin="400 0 0 0" 
                           pu:TextBoxHelper.FocusedBorderBrush="#C800C1FF"  
                           pu:TextBoxHelper.FocusedShadowColor="#C800C1FF" 
                           pu:TextBoxHelper.Watermark="名称/账号"

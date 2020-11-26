@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sw.Template.Web.View.Dialog"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" 
         mc:Ignorable="d"
-        Title="SysUserDialog" Height="450" Width="800"  DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}">
+        Title="{Binding UserTitle}" Height="270" Width="500"  DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}" ResizeMode="CanResize">
+    <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="pu:ButtonHelper.ButtonStyle" Value="Link"/>
+            <Setter Property="pu:ButtonHelper.ClickStyle" Value="Sink"/>
+            <Style.Triggers>
+                <Trigger Property="pu:ButtonHelper.ButtonStyle" Value="Link">
+                    <Setter Property="Background" Value="#C8545454"/>
+                    <Setter Property="Foreground" Value="#C8000000"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Label  Content="{Binding UserName}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="22,25,0,0" TextWrapping="Wrap" Text="账号：" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="93,20,0,0" TextWrapping="Wrap" Text="{Binding UserModel.UserName}" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="259,25,0,0" TextWrapping="Wrap" Text="昵称：" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="329,21,0,0" TextWrapping="Wrap" Text="{Binding UserModel.NickName}" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="22,71,0,0" TextWrapping="Wrap" Text="邮箱：" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="93,66,0,0" TextWrapping="Wrap" Text="{Binding UserModel.Email}" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="259,71,0,0" TextWrapping="Wrap" Text="电话：" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="329,67,0,0" TextWrapping="Wrap" Text="{Binding UserModel.Phone}" VerticalAlignment="Top" Width="120"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="22,123,0,0" TextWrapping="Wrap" Text="性别" VerticalAlignment="Top"/>
+        <ComboBox  Height="26"  Width="120"
+                pu:ComboBoxHelper.HoverBackground="#1EB5B5B5"
+                pu:ComboBoxHelper.SelectedBackground="#32B5B5B5"
+                pu:ComboBoxHelper.IsSearchTextBoxVisible="True"
+                Margin="95,117,279,97" >
+            <ComboBoxItem Content="男"></ComboBoxItem>
+            <ComboBoxItem Content="女"></ComboBoxItem>
+        </ComboBox>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="259,123,0,0" TextWrapping="Wrap" Text="地址：" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="329,119,0,0" TextWrapping="Wrap" Text="{Binding UserModel.Address}" VerticalAlignment="Top" Width="120"/>
+
+        <Button Content="确定" Command="{Binding UserAddOrUpdateCommand}" Width="120" Height="30"  HorizontalAlignment="Left" Margin="175,178,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

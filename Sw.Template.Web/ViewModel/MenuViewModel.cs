@@ -46,7 +46,10 @@ namespace Sw.Template.Web.ViewModel
                 this.RaisePropertyChanged(nameof(SelectedView));
             }
         }
-
+        /// <summary>
+        /// 获取到菜单列表
+        /// </summary>
+        /// <returns></returns>
         public List<TreeNode> GetListMenu()
         {
             var userMenuList = sysUserMenuService.GetWhere(s => s.RoleId == 1);

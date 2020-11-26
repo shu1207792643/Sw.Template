@@ -30,10 +30,10 @@ namespace Sw.Template.DataAccess
                 IsAutoCloseConnection = true,
                 IsShardSameThread = true,
                 InitKeyType = InitKeyType.Attribute,
-                ConfigureExternalServices = new ConfigureExternalServices()
-                {
-                    DataInfoCacheService = new RedisCache()
-                },
+                //ConfigureExternalServices = new ConfigureExternalServices()
+                //{
+                //    DataInfoCacheService = new RedisCache()
+                //},
                 MoreSettings = new ConnMoreSettings()
                 {
                     IsAutoRemoveDataCache = true

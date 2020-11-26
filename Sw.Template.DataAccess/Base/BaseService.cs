@@ -48,7 +48,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Add(T parm)
         {
-            return Db.Insertable(parm).RemoveDataCache().ExecuteCommand();
+            return Db.Insertable(parm).ExecuteCommand();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Add(List<T> parm)
         {
-            return Db.Insertable(parm).RemoveDataCache().ExecuteCommand();
+            return Db.Insertable(parm).ExecuteCommand();
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Update(T parm)
         {
-            return Db.Updateable(parm).RemoveDataCache().ExecuteCommand();
+            return Db.Updateable(parm).ExecuteCommand();
         }
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Update(List<T> parm)
         {
-            return Db.Updateable(parm).RemoveDataCache().ExecuteCommand();
+            return Db.Updateable(parm).ExecuteCommand();
         }
 
         /// <summary>
@@ -257,7 +257,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Update(Expression<Func<T, bool>> where, Expression<Func<T, T>> columns)
         {
-            return Db.Updateable<T>().SetColumns(columns).Where(where).RemoveDataCache().ExecuteCommand();
+            return Db.Updateable<T>().SetColumns(columns).Where(where).ExecuteCommand();
         }
 
         #endregion
@@ -271,7 +271,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Delete(object id)
         {
-            return Db.Deleteable<T>(id).RemoveDataCache().ExecuteCommand();
+            return Db.Deleteable<T>(id).ExecuteCommand();
         }
 
         /// <summary>
@@ -281,7 +281,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Delete(object[] ids)
         {
-            return Db.Deleteable<T>().In(ids).RemoveDataCache().ExecuteCommand();
+            return Db.Deleteable<T>().In(ids).ExecuteCommand();
         }
 
         /// <summary>
@@ -291,7 +291,7 @@ namespace Sw.Template.DataAccess.Base
         /// <returns></returns>
         public int Delete(Expression<Func<T, bool>> where)
         {
-            return Db.Deleteable<T>().Where(where).RemoveDataCache().ExecuteCommand();
+            return Db.Deleteable<T>().Where(where).ExecuteCommand();
         }
         #endregion
     }

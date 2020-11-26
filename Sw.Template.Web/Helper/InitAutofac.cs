@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Sw.Template.Web.View;
+using Sw.Template.Web.View.Dialog;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Sw.Template.Web.Helper

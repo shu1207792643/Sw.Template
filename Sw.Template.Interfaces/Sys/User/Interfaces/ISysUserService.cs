@@ -7,17 +7,6 @@ namespace Sw.Template.Interfaces
 {
     public interface ISysUserService : IBaseService<Sys_User>
     {
-        /// <summary>
-        /// 查询用户集合
-        /// </summary>
-        /// <returns></returns>
-        ReturnResults GetList();
-        /// <summary>
-        /// 用户登录
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        ReturnResults Login(UserLoginModel model);
 
     }
 }

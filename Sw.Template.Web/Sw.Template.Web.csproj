@@ -101,6 +101,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\WindowCloseBehaviour.cs" />
+    <Compile Include="Common\WindowManager.cs" />
     <Compile Include="Helper\CommandBase.cs" />
     <Compile Include="Helper\InitAutofac.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
