@@ -6,26 +6,34 @@
              xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" 
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1800" DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
+             d:DesignHeight="1000" d:DesignWidth="1800" 
+             DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
     <Grid>
         <DockPanel>
             <StackPanel DockPanel.Dock="Left" Width="300">
-                <TreeView  Height="1000" ItemsSource="{Binding ChildNodes}" 
-                           Margin="5"
-                           pu:TreeViewHelper.TreeViewStyle="Classic"
-                           pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
-                           pu:TreeViewHelper.ExpandMode="SingleClick"
-                           pu:TreeViewHelper.ItemPadding="20 0">
+                <TreeView pu:TreeViewHelper.TreeViewStyle="Modern"
+                          pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
+                          pu:TreeViewHelper.ExpandMode="SingleClick"
+                          pu:TreeViewHelper.ItemHeight="40"
+                          Height="1000" 
+                          pu:TreeViewHelper.ItemPadding="20 0"
+                          ItemsSource="{Binding ChildNodes}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectedItemChanged">
                             <i:InvokeCommandAction Command="{Binding SelectedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TreeView}}, Path=SelectedValue}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}"
+                           BasedOn="{StaticResource {x:Type TreeViewItem}}">
+                            <Setter Property="pu:TreeViewHelper.ItemIcon"
+                                Value="{Binding Icon}" />
+                           
+                        </Style>
+                    </TreeView.ItemContainerStyle>
                     <TreeView.ItemTemplate>
                         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <StackPanel>
-                                <TextBlock VerticalAlignment="Center" FontSize="14" Text="{Binding NodeName}"/>
-                            </StackPanel>
+                            <TextBlock  VerticalAlignment="Center" FontSize="14" Text="{Binding Path=NodeName}"/>
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>

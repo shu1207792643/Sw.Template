@@ -7,18 +7,7 @@
         xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" 
         mc:Ignorable="d"
         Title="{Binding UserTitle}" Height="270" Width="500"  DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}" ResizeMode="CanResize">
-    <Window.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="pu:ButtonHelper.ButtonStyle" Value="Link"/>
-            <Setter Property="pu:ButtonHelper.ClickStyle" Value="Sink"/>
-            <Style.Triggers>
-                <Trigger Property="pu:ButtonHelper.ButtonStyle" Value="Link">
-                    <Setter Property="Background" Value="#C8545454"/>
-                    <Setter Property="Foreground" Value="#C8000000"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
+
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="22,25,0,0" TextWrapping="Wrap" Text="账号：" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="93,20,0,0" TextWrapping="Wrap" Text="{Binding UserModel.UserName}" VerticalAlignment="Top" Width="120"/>
@@ -33,11 +22,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="329,67,0,0" TextWrapping="Wrap" Text="{Binding UserModel.Phone}" VerticalAlignment="Top" Width="120"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="22,123,0,0" TextWrapping="Wrap" Text="性别" VerticalAlignment="Top"/>
-        <ComboBox  Height="26"  Width="120"
-                pu:ComboBoxHelper.HoverBackground="#1EB5B5B5"
-                pu:ComboBoxHelper.SelectedBackground="#32B5B5B5"
-                pu:ComboBoxHelper.IsSearchTextBoxVisible="True"
-                Margin="95,117,279,97" >
+        <ComboBox  Height="26"  Width="120" Margin="95,117,279,97" >
             <ComboBoxItem Content="男"></ComboBoxItem>
             <ComboBoxItem Content="女"></ComboBoxItem>
         </ComboBox>

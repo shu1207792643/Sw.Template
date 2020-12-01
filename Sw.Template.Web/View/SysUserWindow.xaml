@@ -7,25 +7,12 @@
              mc:Ignorable="d" 
              xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              d:DesignHeight="800" d:DesignWidth="1500" DataContext="{Binding Source={StaticResource Locator},Path=UserViewModel}">
-    <UserControl.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="pu:ButtonHelper.ButtonStyle" Value="Link"/>
-            <Setter Property="pu:ButtonHelper.ClickStyle" Value="Sink"/>
-            <Style.Triggers>
-                <Trigger Property="pu:ButtonHelper.ButtonStyle" Value="Link">
-                    <Setter Property="Background" Value="#C8545454"/>
-                    <Setter Property="Foreground" Value="#C8000000"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <GroupBox Header="界面操作" Margin="5" 
-                  pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.ShadowColor="#C8545454">
             <StackPanel Orientation="Horizontal">
                 <Button Content="刷新" Width="120" Height="30" Margin="10" />
@@ -49,7 +36,6 @@
             </StackPanel>
         </GroupBox>
         <GroupBox Header="数据列表" Margin="5" Grid.Row="1" 
-                  pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.ShadowColor="#C8545454">
             <DataGrid IsReadOnly="True"  ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
                 <i:Interaction.Triggers>

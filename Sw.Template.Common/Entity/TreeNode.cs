@@ -14,6 +14,7 @@ namespace Sw.Template.Common.Entity
         public int NodeID { get; set; }
         public int ParentID { get; set; }
         public string NodeName { get; set; }
+        public string Icon { get; set; }
         public List<TreeNode> Children { get; set; }
         public TreeNode()
         {

@@ -23,11 +23,14 @@ namespace Sw.Template.Web.ViewModel
         {
             ExcuteSendCommand(node);
         });
+        Dictionary<int, string> Dic = new Dictionary<int, string>();
 
+       
         private readonly ISysMenuService sysMenuService;
         private readonly ISysUserMenuService sysUserMenuService;
         public MenuViewModel(ISysMenuService sysMenuService, ISysUserMenuService sysUserMenuService)
         {
+           
             this.sysMenuService = sysMenuService;
             this.sysUserMenuService = sysUserMenuService;
             ChildNodes = GetListMenu();
@@ -90,7 +93,8 @@ namespace Sw.Template.Web.ViewModel
                         {
                             NodeID = s.Id,
                             NodeName = s.MenuName,
-                            ParentID = parentID
+                            ParentID = parentID,
+                            Icon = s.MenuIcon
                         };
                         if (treeSysMenu.NodeID > 0 && menuList.Any(m => m.MenuFather == treeSysMenu.NodeID))
                         {
