@@ -35,5 +35,15 @@ namespace Sw.Template.Common
             [Description("子窗口弹窗")]
             ShowDialog = 2
         }
+        /// <summary>
+        /// 是否删除
+        /// </summary>
+        public enum IsDel
+        {
+            [Description("删除")]
+            No = 0,
+            [Description("正常")]
+            Yes = 1
+        }
     }
 }

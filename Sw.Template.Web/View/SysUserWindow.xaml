@@ -13,19 +13,20 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="界面操作" Margin="5"
+        <GroupBox Header="  界面操作" Margin="5"
+                   FontFamily="{StaticResource FontAwesome}"
                   Foreground="#FFFFFF"
                   pu:GroupBoxHelper.ShadowColor="#8BE1D8"
                   pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.HeaderBackground="#8BE1D8">
             <StackPanel Orientation="Horizontal">
-                <Button Content="刷新" Margin="10" Command="{Binding ResetCommand}"/>
+                <Button Content="  刷新" Margin="10" Command="{Binding ResetCommand}"/>
 
-                <Button Content="新增" Margin="10" Command="{Binding SysUserDialogCommand}"/>
+                <Button Content="  新增" Margin="10" Command="{Binding SysUserDialogCommand}"/>
 
                 <!--<Button Content="修改" Width="120" Height="30" Margin="10"/>-->
 
-                <Button Content="删除" Margin="10"/>
+                <Button  Content="  删除" Margin="10"/>
 
                 <TextBox  Height="30" Width="300"  Margin="400 0 0 0" 
                           pu:TextBoxHelper.FocusedBorderBrush="#C800C1FF"  
@@ -33,19 +34,20 @@
                           pu:TextBoxHelper.Watermark="名称/账号"
                           pu:TextBoxHelper.CornerRadius="15" Text="{Binding Q}"/>
 
-                <Button Content="查询"  Margin="20 0" Command="{Binding QueryCommand}"/>
+                <Button Content="  查询"  Margin="20 0" Command="{Binding QueryCommand}"/>
 
-                <Button Content="重置" Margin="5 0" Command="{Binding ResetCommand}"/>
+                <Button Content="  重置" Margin="5 0" Command="{Binding ResetCommand}"/>
 
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="数据列表" Margin="5" Grid.Row="1" 
+        <GroupBox Header="  数据列表" Margin="5" Grid.Row="1" 
+                  FontFamily="{StaticResource FontAwesome}"
                    Foreground="#FFFFFF"
                    pu:GroupBoxHelper.ShadowColor="#85DED8"
                   pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.HeaderBackground="#85DED8">
             <StackPanel>
-                <DataGrid IsReadOnly="True"  pu:DataGridHelper.SelectedBackground="#85DED8" pu:DataGridHelper.HoverBackground="#8BE1D8" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
+                <DataGrid Height="785" IsReadOnly="True"  pu:DataGridHelper.SelectedBackground="#85DED8" pu:DataGridHelper.HoverBackground="#8BE1D8" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
                             <i:InvokeCommandAction Command="{Binding Edit}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"/>

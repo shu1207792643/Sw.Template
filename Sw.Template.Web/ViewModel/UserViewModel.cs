@@ -53,12 +53,12 @@ namespace Sw.Template.Web.ViewModel
         {
             if (Q != null)
             {
-                UserList = sysUserService.GetWhere(s => s.IsDel != 0 && s.UserName.Contains(Q) && s.NickName.Contains(Q)).ToList();
+                UserList = sysUserService.GetWhere(s => s.IsDel == (int)IsDel.Yes && s.UserName.Contains(Q) && s.NickName.Contains(Q)).ToList();
                 this.RaisePropertyChanged(nameof(UserList));
             }
             else
             {
-                UserList = sysUserService.GetWhere(s => s.IsDel != 0).ToList();
+                UserList = sysUserService.GetWhere(s => s.IsDel == (int)IsDel.Yes).ToList();
                 this.RaisePropertyChanged(nameof(UserList));
             }
         }
@@ -68,7 +68,7 @@ namespace Sw.Template.Web.ViewModel
         public void ResetUserList()
         {
             Q = null;
-            UserList = sysUserService.GetWhere(s => s.IsDel != 0).ToList();
+            UserList = sysUserService.GetWhere(s => s.IsDel == (int)IsDel.Yes).ToList();
             this.RaisePropertyChanged(nameof(UserList));
             this.RaisePropertyChanged(nameof(Q));
         }
@@ -104,10 +104,11 @@ namespace Sw.Template.Web.ViewModel
             else
             {
                 UserModel.CreateTime = DateTime.Now;
-                UserModel.IsDel = 1;
+                UserModel.IsDel = (int)IsDel.Yes;
                 sysUserService.Add(UserModel);
             }
             ResetUserList();
+            DialogHelper.DialogClose("员工管理弹窗");
         }
     }
 }

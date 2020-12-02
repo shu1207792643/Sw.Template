@@ -22,6 +22,7 @@
                 <Setter Property="Height" Value="30" />
                 <Setter Property="Foreground" Value="#FFFFFF" />
                 <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontFamily" Value="{StaticResource FontAwesome}"/>
             </Style>
 
            
