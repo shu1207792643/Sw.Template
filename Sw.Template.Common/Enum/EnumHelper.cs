@@ -25,5 +25,15 @@ namespace Sw.Template.Common
             [Description("错误日志")]
             Error = 5
         }
+        /// <summary>
+        /// 弹窗枚举
+        /// </summary>
+        public enum OpenType
+        {
+            [Description("正常弹窗")]
+            Show = 1,
+            [Description("子窗口弹窗")]
+            ShowDialog = 2
+        }
     }
 }

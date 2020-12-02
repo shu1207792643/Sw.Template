@@ -23,7 +23,7 @@ namespace Sw.Template.Web.ViewModel
         {
             ExcuteSendCommand(node);
         });
-        Dictionary<int, string> Dic = new Dictionary<int, string>();
+    
 
        
         private readonly ISysMenuService sysMenuService;

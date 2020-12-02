@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using static Sw.Template.Common.EnumHelper;
 
 namespace Sw.Template.Web.ViewModel
 {
@@ -79,8 +80,7 @@ namespace Sw.Template.Web.ViewModel
         {
             UserTitle = "用户修改";
             UserModel = User;
-            SysUserDialog dialog = new SysUserDialog();
-            dialog.ShowDialog();
+            DialogHelper.DialogOpen("员工管理弹窗", OpenType.ShowDialog);
         }
         /// <summary>
         /// 新增弹窗
@@ -89,8 +89,7 @@ namespace Sw.Template.Web.ViewModel
         {
             UserTitle = "用户新增";
             UserModel = new Sys_User();
-            SysUserDialog dialog = new SysUserDialog();
-            dialog.ShowDialog();
+            DialogHelper.DialogOpen("员工管理弹窗", OpenType.ShowDialog);
         }
         /// <summary>
         /// 用户修改OR新增

@@ -19,13 +19,13 @@
                   pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.HeaderBackground="#8BE1D8">
             <StackPanel Orientation="Horizontal">
-                <Button Content="刷新"  Margin="10" Command="{Binding ResetCommand}"/>
+                <Button Content="刷新" Margin="10" Command="{Binding ResetCommand}"/>
 
-                <Button Content="新增"  Margin="10" Command="{Binding SysUserDialogCommand}"/>
+                <Button Content="新增" Margin="10" Command="{Binding SysUserDialogCommand}"/>
 
                 <!--<Button Content="修改" Width="120" Height="30" Margin="10"/>-->
 
-                <Button Content="删除"   Margin="10"/>
+                <Button Content="删除" Margin="10"/>
 
                 <TextBox  Height="30" Width="300"  Margin="400 0 0 0" 
                           pu:TextBoxHelper.FocusedBorderBrush="#C800C1FF"  
@@ -44,22 +44,25 @@
                    pu:GroupBoxHelper.ShadowColor="#85DED8"
                   pu:GroupBoxHelper.IsSplitLineVisible="True"
                   pu:GroupBoxHelper.HeaderBackground="#85DED8">
-            <DataGrid IsReadOnly="True"  pu:DataGridHelper.SelectedBackground="#85DED8" pu:DataGridHelper.HoverBackground="#8BE1D8" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding Edit}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <DataGrid.Columns>
-                    <DataGridTextColumn  Header="Id" Width="200" Binding="{Binding UserID}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="账号" Width="200" Binding="{Binding  UserName}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="密码" Width="200" Binding="{Binding  Password}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="名称" Width="200" Binding="{Binding NickName}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="性别" Width="200" Binding="{Binding Sex}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="是否启用" Width="200" Binding="{Binding IsEnabled}"></DataGridTextColumn>
-                    <DataGridTextColumn  Header="地址" Width="200" Binding="{Binding  Address}"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <StackPanel>
+                <DataGrid IsReadOnly="True"  pu:DataGridHelper.SelectedBackground="#85DED8" pu:DataGridHelper.HoverBackground="#8BE1D8" ItemsSource="{Binding UserList}" AutoGenerateColumns="False" CanUserAddRows="False" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding Edit}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn  Header="Id" Width="200" Binding="{Binding UserID}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="账号" Width="200" Binding="{Binding  UserName}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="密码" Width="200" Binding="{Binding  Password}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="名称" Width="200" Binding="{Binding NickName}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="性别" Width="200" Binding="{Binding Sex}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="是否启用" Width="200" Binding="{Binding IsEnabled}"></DataGridTextColumn>
+                        <DataGridTextColumn  Header="地址" Width="200" Binding="{Binding  Address}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
         </GroupBox>
     </Grid>
 </UserControl>

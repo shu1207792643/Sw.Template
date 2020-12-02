@@ -104,6 +104,7 @@
     <Compile Include="Common\WindowCloseBehaviour.cs" />
     <Compile Include="Common\WindowManager.cs" />
     <Compile Include="Helper\CommandBase.cs" />
+    <Compile Include="Helper\DialogHelper.cs" />
     <Compile Include="Helper\InitAutofac.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -210,6 +211,5 @@
       <Name>Sw.Template.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
