@@ -20,9 +20,25 @@ namespace Sw.Template.Web.View
     /// </summary>
     public partial class MenuWindow : UserControl
     {
+        public bool Visibilitys { get; set; } = false;
         public MenuWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Visibilitys)
+            {
+                stackPanelLeft.Visibility = Visibility.Visible;
+                Visibilitys = false;
+            }
+            else
+            {
+                stackPanelLeft.Visibility = Visibility.Collapsed;
+                Visibilitys = true;
+            }
+
         }
     }
 }

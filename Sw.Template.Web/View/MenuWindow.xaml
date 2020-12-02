@@ -10,7 +10,8 @@
              DataContext="{Binding Source={StaticResource Locator},Path=MenuViewModel}">
     <Grid>
         <DockPanel>
-            <StackPanel DockPanel.Dock="Left" Width="300">
+
+            <StackPanel x:Name="stackPanelLeft" DockPanel.Dock="Left" Width="300">
                 <TreeView Foreground="#FFFFFF"  
                           Background="#8BE1D8" 
                           pu:TreeViewHelper.TreeViewStyle="Modern"
@@ -39,6 +40,9 @@
                         </HierarchicalDataTemplate>
                     </TreeView.ItemTemplate>
                 </TreeView>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top"  Height="40">
+                <Button Content="" DockPanel.Dock="Top" Width="30" Click="Button_Click"/>
             </StackPanel>
             <StackPanel>
                 <ContentControl Content="{Binding SelectedView}"></ContentControl>
