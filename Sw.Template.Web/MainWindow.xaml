@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Sw.Template.Web" xmlns:view="clr-namespace:Sw.Template.Web.View"
         mc:Ignorable="d"
         Title="程序主页" Height="1000" Width="1800" WindowStartupLocation="CenterScreen">
-    <Grid Background="#8BE1D8">
+    <Grid >
         <view:MenuWindow/>
     </Grid>
 </Window>

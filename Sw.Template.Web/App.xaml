@@ -5,13 +5,26 @@
              StartupUri="MainWindow.xaml" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" 
-             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+             xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Panuon.UI.Silver;component/Control.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:Sw.Template.Web.ViewModel" />
+            
+            <Style TargetType="Button" >
+                <Setter Property="pu:ButtonHelper.ClickStyle" Value="Sink" />
+                <Setter Property="pu:ButtonHelper.HoverBrush" Value="#80DBCB" />
+                <Setter Property="Background" Value="#8BE1D8" />
+                <Setter Property="Width" Value="120" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="Foreground" Value="#FFFFFF" />
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+
+           
         </ResourceDictionary>
     </Application.Resources>
 </Application>

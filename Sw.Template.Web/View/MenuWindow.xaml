@@ -11,7 +11,10 @@
     <Grid>
         <DockPanel>
             <StackPanel DockPanel.Dock="Left" Width="300">
-                <TreeView pu:TreeViewHelper.TreeViewStyle="Modern"
+                <TreeView Foreground="#FFFFFF"  
+                          Background="#8BE1D8" 
+                          pu:TreeViewHelper.TreeViewStyle="Modern"
+                          pu:TreeViewHelper.SelectedBackground="#75DBCD"
                           pu:TreeViewHelper.ExpandBehaviour="OnlyOne"
                           pu:TreeViewHelper.ExpandMode="SingleClick"
                           pu:TreeViewHelper.ItemHeight="40"
@@ -28,7 +31,6 @@
                            BasedOn="{StaticResource {x:Type TreeViewItem}}">
                             <Setter Property="pu:TreeViewHelper.ItemIcon"
                                 Value="{Binding Icon}" />
-                           
                         </Style>
                     </TreeView.ItemContainerStyle>
                     <TreeView.ItemTemplate>
